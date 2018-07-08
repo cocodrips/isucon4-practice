@@ -1,6 +1,6 @@
 WORKLOAD = 1
 HOSTS=127.0.0.1
-.PHONY: main settings nx ctrl bench
+.PHONY: main settings nginx bench
 
 main: settings nginx bench
 	echo "OK"
@@ -18,4 +18,4 @@ nginx:
 	sudo service nginx reload
 
 bench:
-	sudo su - isucon -c "/home/isucon/benchmarker bench --hosts 127.0.0.1 --workload ${WORKLOAD}"
+	sudo su - isucon -c "/home/isucon/benchmarker bench --hosts=${HOSTS} --workload=${WORKLOAD}"
