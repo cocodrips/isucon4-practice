@@ -18,4 +18,6 @@ nginx:
 	sudo service nginx reload
 
 bench:
+    rm -f /home/isucon/redis/appendonly.aof
+    sleep 5
 	sudo su - isucon -c "/home/isucon/benchmarker bench --hosts=${HOSTS} --workload=${WORKLOAD}"
