@@ -10,7 +10,7 @@ settings:
 	sudo sysctl -a	
 	sudo ln -sf $(PWD)/supervisord.conf /etc/supervisord.conf
 	sudo supervisorctl reload
-	
+
 nginx: 
 	sudo ln -sf $(PWD)/nginx /etc/nginx
 	sudo rm -f /var/log/nginx/access.log /var/log/nginx/error.log
@@ -18,6 +18,6 @@ nginx:
 	sudo service nginx reload
 
 bench:
-    rm -f /home/isucon/redis/appendonly.aof
-    sleep 5
+	rm -f /home/isucon/redis/appendonly.aof
+	sleep 5
 	sudo su - isucon -c "/home/isucon/benchmarker bench --hosts=${HOSTS} --workload=${WORKLOAD}"
